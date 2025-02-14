@@ -27,9 +27,9 @@ function capitalizeWords(sentence: string): string {
 }
 
 // Пример использования
-const sentence =
+const mySentence =
   "Не волнуйтесь, если что-то не работает. Если бы всё работало, вас бы уволили.";
-const capitalizedSentence = capitalizeWords(sentence);
+const capitalizedSentence = capitalizeWords(mySentence);
 console.log(capitalizedSentence);
 // "Не Волнуйтесь, Если Что-То Не Работает. Если Бы Всё Работало, Вас Бы Уволили."
 
