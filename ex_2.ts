@@ -1,4 +1,11 @@
 // Задание 2. Ошибка в коде — 2
+// Найти и исправить ошибку в чужом коде.
+/*
+document.addEventListener('click', (e) => {
+const coords = [e.posX, e.posY];
+console.log(Point is ${coords[0]}, ${coords[1]});
+});
+*/
 
 // Решение:
 document.addEventListener("click", (e: MouseEvent) => {
