@@ -1,5 +1,32 @@
 // Задание 1. Ошибка в коде
+// Найти и исправить ошибку в чужом коде.
+/*
+const actor: {
+  name: string;
+  firstName: string;
+  country: string;
+  city: string;
+  hasOskar: boolean;
+  filmsCount: number;
+  age: number;
+  languages: string[];
+} = {
+  name: "Michael",
+  firstName: "Ivanov",
+  country: "Russia",
+  city: "Makhachkala",
+  hasOskar: false,
+  filmsCount: 10,
+  age: "14",
+  languages: ["RU-ru", "EN-us", "TR-tr"],
+};
+const howOldWillBeActorAfterTwentyYears = (actor) => {
+  return actor.age + 20;
+};
+console.log(howOldWillBeActorAfterTwentyYears(actor)); // '1420'
+*/
 
+// Решение:
 const actor: {
   name: string;
   firstName: string;
