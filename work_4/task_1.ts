@@ -113,7 +113,7 @@ function findUntrustedUsers(users: User[]): User[] {
 
 // 6. Запускаем и выводим результаты
 const untrustedUsers = findUntrustedUsers(users);
-
+// Вывод результатов:
 console.log("Ненадежные пользователи:");
 if (untrustedUsers.length === 0) {
   console.log("Все пользователи надежные.");
