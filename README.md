@@ -70,7 +70,11 @@ console.log(result); // Вывод: 15
 ### Использование Тайпгардов
 
 - Тайпгард проверяет соответствие типу по заданным условиям.
-  Обычный тайпгард реализуется с помощью условия `if` и операторов `typeof`, `in`, `instanceof`, операторов сравнения и так далее.
+- Использование тайпгардов позволяет TypeScript сужать тип переменной внутри блоков `if` (`else if` / `else`). Благодаря этому, TypeScript может безопасно обращаться к свойствам объекта.
+
+#### Обычный тайпгард
+
+Обычный тайпгард реализуется с помощью условия `if` и операторов `typeof`, `in`, `instanceof`, операторов сравнения и так далее.
 
 #### Пользовательский тайпгард
 
@@ -81,6 +85,49 @@ console.log(result); // Вывод: 15
 - Реализация с пользовательским тайпгардом наиболее предпочтительна из-за читаемости, повторного использования и возможностей для более сложной логики.
 - `in` более лаконичен, но менее читаем при усложнении логики.
 - Приведение типов следует избегать из-за потенциальных ошибок во время выполнения.
+
+```bash
+type User = {
+  type: 'user';
+  name: string;
+  age: number;
+  occupation: string;
+};
+
+type Admin = {
+  type: 'admin';
+  name: string;
+  age: number;
+  role: string;
+};
+
+type Person = User | Admin;
+
+const persons: Person[] = [
+  { type: 'user', name: 'Max Mustermann', age: 25, occupation: 'Chimney sweep' },
+  { type: 'admin', name: 'Jane Doe', age: 32, role: 'Administrator' },
+  { type: 'user', name: 'Kate Müller', age: 23, occupation: 'Astronaut' },
+  { type: 'admin', name: 'Bruce Willis', age: 64, role: 'World saver' }
+];
+
+function isAdmin(person: Person): person is Admin {
+  return person.type === 'admin';
+}
+
+function isUser(person: Person): person is User {
+  return person.type === 'user';
+}
+
+function logPerson(person: Person) {
+  let additionalInformation: string = '';
+  if (isAdmin(person)) {
+    additionalInformation = person.role;
+  } else if (isUser(person)) {
+    additionalInformation = person.occupation;
+  }
+  console.log(`- ${person.name}, ${person.age}, ${additionalInformation}`);
+}
+```
 
 ### Использование перечислений (enum)
 
