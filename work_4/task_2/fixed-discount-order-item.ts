@@ -2,7 +2,7 @@ import { OrderItem } from "./order-item";
 import { Product } from "./product";
 
 export class FixedDiscountOrderItem extends OrderItem {
-  private _discount: number;
+  private _discount: number; // Фиксированная скидка текущего заказа
 
   constructor(product: Product, quantity: number, discount: number) {
     super(product, quantity);
