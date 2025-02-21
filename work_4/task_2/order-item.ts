@@ -24,14 +24,15 @@ export abstract class OrderItem {
   set quantity(value: number) {
     this._quantity = value;
   }
-
+  // Метод для вывода количества товаров заказа
   log(): void {
     this.product.log();
-    console.log(`Quantity: ${this.quantity}`);
+    console.log(`Количество: ${this.quantity}`);
   }
 
-  abstract getCost(): number;
+  abstract getCost(): number; // Классы, которые наследуются от OrderItem, обязаны предоставить реализацию для этого метода.
 
+  // Метод для сравнения текущего заказа с другим (other) на основе их стоимости
   compare(other: OrderItem): number {
     const cost1 = this.getCost();
     const cost2 = other.getCost();
