@@ -3,7 +3,7 @@ import { CanRun } from "./can-run";
 
 export class NibiruAthlete extends Human implements CanRun {
   run(): void {
-    console.log("Атлет Нибиру бежит со сверхзвуковой скоростью!");
+    console.log("Атлет Нибиру бегает со сверхзвуковой скоростью!");
   }
 
   swim(): void {
@@ -17,7 +17,7 @@ export class NibiruAthlete extends Human implements CanRun {
 
 // Описание:
 /*
-Класс NibiruAthlete (nibiru-athlete.ts):
+Класс NibiruAthlete:
 - Наследуется от Human и реализует только интерфейс CanRun.
 - Предоставляет конкретную реализацию для run(), но выдает ошибку, если кто-то попытается вызвать swim() или fly().
 */
