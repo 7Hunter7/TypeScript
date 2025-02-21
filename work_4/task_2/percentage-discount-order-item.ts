@@ -35,16 +35,17 @@ export class PercentageDiscountOrderItem extends OrderItem {
   // Метод рассчета стоимости товара с учетом процентной скидки и минимального количества
   getCost(): number {
     let cost = this.product.price * this.quantity;
+    // Если минимальное количество достигнуто, то применяется процентная скидка:
     if (this.quantity >= this.minQuantityForDiscount) {
       cost = cost * (1 - this.discountPercentage / 100); // Процентная скидка
     }
-    return Math.floor(cost); // Итоговая стоимость, округленная в меньшую сторону до целого числа.
+    return Math.floor(cost); // Итоговая стоимость, округленная в меньшую сторону до целого числа
   }
 
   log(): void {
     super.log();
     console.log(
-      `Процентная скидка: ${this.discountPercentage}%, Минимальное количество для получения скидки: ${this.minQuantityForDiscount}`
+      `Процентная скидка: ${this.discountPercentage}%. Минимальное количество для получения скидки: ${this.minQuantityForDiscount}`
     );
   }
 }
