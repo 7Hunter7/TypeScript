@@ -16,13 +16,13 @@ export class FixedDiscountOrderItem extends OrderItem {
   set discount(value: number) {
     this._discount = value;
   }
-
+  // Метод для рассчета стоимости заказа с учетом фиксированной скидки на продукт
   getCost(): number {
     return (this.product.price - this.discount) * this.quantity;
   }
 
   log(): void {
     super.log();
-    console.log(`Fixed Discount: ${this.discount}`);
+    console.log(`Фиксированная скидка: ${this.discount}`);
   }
 }
