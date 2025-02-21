@@ -22,7 +22,7 @@ export class Product {
   set price(value: number) {
     this._price = value;
   }
-
+  // Метод для вывода информации о продукте в консоль
   log(): void {
     console.log(`${this.name};${this.price}`);
   }
