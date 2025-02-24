@@ -47,7 +47,6 @@ console.log(todo); // { completed: false }
 console.log(todo2); // { title: 'Learn TypeScript', completed: false }
 
 // Описание:
-
 /*
 1) MyOmit<T, K extends keyof T>:
 - Определение условного типа с двумя дженериками: T (исходный тип) и K (ключи, которые нужно исключить);
