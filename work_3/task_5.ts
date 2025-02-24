@@ -97,7 +97,8 @@ export function logPerson(person: Person) {
   let additionalInformation: string = "";
   if (isAdmin(person)) {
     additionalInformation = person.role;
-  } else if (isUser(person)) {
+  }
+  if (isUser(person)) {
     additionalInformation = person.occupation;
   }
   console.log(`- ${person.name}, ${person.age}, ${additionalInformation}`);
@@ -118,7 +119,6 @@ persons.filter(isUser).forEach(logPerson);
 - Теперь они имеют тип возвращаемого значения person is Admin и person is User соответственно. 
 - Это говорит TypeScript, что если функция возвращает true, то переданный аргумент person должен рассматриваться как тип Admin или User соответственно.
 
-2) else if в logPerson:
-- В функции logPerson заменил второй if на else if. Это необходимо, чтобы убедиться, что additionalInformation присваивается значение только одного из свойств role (для Admin) или occupation (для User). 
-- Без else if, additionalInformation всегда будет перезаписана значением person.occupation, даже если person является Admin.
+2)  if в logPerson:
+- В функции logPerson условие if необходимо, чтобы убедиться, что additionalInformation присваивается значение только одного из свойств role (для Admin) или occupation (для User). 
 */
