@@ -163,7 +163,7 @@ export function logPerson(person: Person) {
   console.log(`- ${person.name}, ${person.age}, ${additionalInformation}`);
 }
 
-type FilterCriteria = Partial<User> & Partial<Admin>;
+type FilterCriteria = Partial<User | Admin>; // Объединение типов
 
 export function filterPersons(
   persons: Person[],
@@ -171,7 +171,7 @@ export function filterPersons(
 ): Person[] {
   return persons.filter((person) => {
     for (const key in criteria) {
-      if (criteria.hasOwnProperty(key)) {
+      if (criteria.hasOwnProperty.call(person, key)) {
         if (person[key] !== criteria[key]) {
           return false;
         }
@@ -262,4 +262,8 @@ export function filterPersons(
 Этот код использует Partial<User | Admin>. Так же, чтобы избежать ошибок, связанных с отсутствием свойства в типе Person, была добавлена проверка key in person.
 
 В целом, Partial<User> & Partial<Admin> лучшее решение, так как оно позволяет четко указать, что мы можем фильтровать по свойствам, которые есть либо в User, либо в Admin.
+
+Примечания: 
+1) Вместо Partial<User> & Partial<Admin> можно использовать Partial<User | Admin>. Это объединит типы и позволит избежать лишнего пересечения.
+2) В TypeScript for...in по умолчанию может перечислять все свойства, включая те, что находятся в прототипах. Лучше использовать Object.hasOwnProperty.call(person, key), чтобы избежать ошибок при использовании объектов с расширениями.
 */
