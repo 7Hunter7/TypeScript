@@ -37,7 +37,7 @@ type MyReadonly2<T, K extends keyof T = keyof T> = {
   readonly [P in K]: T[P];
 } & Omit<T, K>;
 
-const todo1: MyReadonly2<Todo, "title" | "description"> = {
+const todo1: MyReadonly2<Todo1, "title" | "description"> = {
   title: "Hey",
   description: "foobar",
   completed: false,
@@ -79,7 +79,7 @@ const todo3: MyReadonly2<Todo> = {
 б) Тип, который содержит все поля из T, кроме тех, что указаны в K (благодаря Omit). Это гарантирует, что поля, не указанные в K, останутся с их исходной модифицируемостью.
 
 4) Пример:
-- const todo1: MyReadonly2<Todo, 'title' | 'description'> создаёт объект, где поля title и description являются readonly, а completed остаётся изменяемым.
+- const todo1: MyReadonly2<Todo1, 'title' | 'description'> создаёт объект, где поля title и description являются readonly, а completed остаётся изменяемым.
 - const todo3: MyReadonly2<Todo> создает объект, где все поля (title, description, completed) являются readonly.
 
 5) Примечание:
